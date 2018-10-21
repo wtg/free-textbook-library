@@ -2,7 +2,7 @@
   <b-navbar toggleable="md" fixed="top" type="light" variant="light" class="bg-white">
     <b-navbar-brand to="/">
       <!-- Free Textbook Library -->
-      ftl<i style='font-size:50%;' class="fa fa-heart text-danger"></i>
+      ftl<i style='font-size:95%;' class="fa fa-heart text-danger"></i>
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
@@ -13,7 +13,6 @@
         <b-nav-item to="/book_types">Books</b-nav-item>
         <b-nav-item to="/courses">Courses</b-nav-item>
         <b-nav-item to="/checkouts" v-if="isAuthenticated">Checkouts</b-nav-item>
-        <b-nav-item to="/about">About</b-nav-item>
 
         <!-- <b-nav-item to="/checkouts">Checkouts</b-nav-item> -->
       </b-navbar-nav>
@@ -23,18 +22,19 @@
 
         <b-nav-item-dropdown text="Admin" v-if="isAdmin" right>
           <b-dropdown-item to="/checkouts/new">
-            <i class="fa fa-plus"></i>
-            New Checkout
+            <i class="fa fa-shopping-cart"></i>
+            Checkout Book
+          </b-dropdown-item>
+          <b-dropdown-item to="/checkouts/new">
+            <i class="fa fa-reply"></i>
+            Check-In Book
           </b-dropdown-item>
           <b-dropdown-divider></b-dropdown-divider>
           <b-dropdown-item to="/checkouts">Checkouts</b-dropdown-item>
           <b-dropdown-item to="/books">Inventory</b-dropdown-item>
           <b-dropdown-item to="/courses">Courses</b-dropdown-item>
           <b-dropdown-item to="/users">Users</b-dropdown-item>
-          <b-dropdown-item to="/users/new">
-            <i class="fa fa-plus"></i>
-            New User
-          </b-dropdown-item>
+          <b-dropdown-item to="/faqs">FAQs</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown right>
