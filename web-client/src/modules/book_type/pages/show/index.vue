@@ -46,10 +46,42 @@
       <b-col lg="9">
         <b-row>
           <b-col lg='12'>
-            <p class="lead">
+            <p class="lead mb-0">
               {{ model.title }}
+              <small class='text-muted'>{{ model.edition }} Edition</small>
             </p>
-            <small class='text-muted'> Authors: {{ model.authors.join(', ') }}</small>
+            <small class='text-muted'>{{ model.authors.join(', ') }}</small>
+            <br>
+            <small class='text-muted'>
+              ISBN-10: {{ model.isbn_10 }}
+              <b-button
+                size="sm"
+                variant="link"
+                v-clipboard:copy="model.isbn_10"
+                v-b-tooltip.hover.right
+                title="Copy ISBN-10 to clipboard"
+              >
+                <i class="fa fa-copy"></i>
+              </b-button>
+            </small>
+            <br>
+            <small class='text-muted'>
+              ISBN-13: {{ model.isbn_13 }}
+              <b-button
+                size="sm"
+                variant="link"
+                v-clipboard:copy="model.isbn_13"
+                v-b-tooltip.hover.right
+                title="Copy ISBN-13 to clipboard"
+              >
+                <i class="fa fa-copy"></i>
+              </b-button>
+            </small>
+
+            <br>
+
+            <small class='text-muted'> Collegiate Store Price: ${{ model.list_price }}</small>
+
             <hr>
           </b-col>
           <b-col lg='12'>

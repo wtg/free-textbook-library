@@ -26,18 +26,25 @@ export default {
 <!-- // // // //  -->
 
 <!-- QUESTION - SCOPED? -->
-<style lang='sass'>
-  // @import '../../../sass/app.sass'
+<style>
 
-  .container.notification-container
-    position: absolute
-    bottom: 0
-    right: 0
+  .container-fluid.notifications {
+    position: fixed;
+    z-index: 999;
+    width: 50%;
+    right: 0;
+    bottom: 0;
+    margin-top: 7.5rem;
+    margin-bottom: 3rem;
+    margin-right: .5rem;
+  }
 
-  .list-enter-active, .list-leave-active
-    transition: opacity .5s
+  .list-enter-active, .list-leave-active {
+    transition: opacity .1s;
+  }
 
-  .list-enter, .list-leave-to
-     opacity: 0
+  .list-enter, .list-leave-to {
+    opacity: 0;
+  }
 
 </style>

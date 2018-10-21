@@ -23,9 +23,7 @@
 
       <div class="row">
         <div class="col-sm-8">
-          <h2>
-            {{ header || 'User Detail' }}
-          </h2>
+          <h2>Profile</h2>
         </div>
         <div class="col-sm-4 text-right">
 
@@ -92,7 +90,7 @@ import { mapGetters, mapActions } from 'vuex'
 import Loading from '@/components/Loading'
 
 export default {
-  props: ['id', 'model', 'fetching', 'header'],
+  props: ['id', 'model', 'fetching'],
   name: 'UserShowWidget',
   components: {
     Loading

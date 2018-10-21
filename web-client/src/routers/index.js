@@ -9,6 +9,7 @@ import BookTypeRoutes from '@/modules/book_type/router'
 import BookRoutes from '@/modules/book/router'
 import CheckoutRoutes from '@/modules/checkout/router'
 import CourseRoutes from '@/modules/course/router'
+import FaqRoutes from '@/modules/faq/router'
 
 // Vue Router setup
 Vue.use(Router)
@@ -22,6 +23,7 @@ export default new Router({
     ...BookTypeRoutes,
     ...BookRoutes,
     ...CheckoutRoutes,
-    ...CourseRoutes
+    ...CourseRoutes,
+    ...FaqRoutes
   ]
 })
