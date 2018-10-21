@@ -1,38 +1,36 @@
 <template>
-
   <div class="row h-100 align-items-center">
     <div class="col-lg-12">
 
       <div class="row">
         <div class="col-lg-12 text-center">
-          <p class="welcome-text mb-0">Built with</p>
+          <h1 class='display-1' style="font-family: monospace;">ftl<i style='font-size:75%;' class="fa fa-heart text-danger"></i></h1>
+          <p class="welcome-text mb-0">Free Textbook Library</p>
         </div>
       </div>
 
       <div class="row my-2">
         <div class="col-lg-12 text-center">
-          <!-- <img src="@/assets/logo.png"> -->
-          <h1 class='display-1' style="font-family: monospace;">codotype</h1>
+          Take a book, leave a book
         </div>
       </div>
 
       <div class="row my-4">
         <div class="col-lg-12 text-center">
-          <a class="btn btn-lg btn-outline-dark mx-2" href="https://codotype.io" target="_blank">
-            <i class="fa fa-desktop"></i>
-            codotype.io
-          </a>
-
-          <a class="btn btn-lg btn-outline-dark mx-2" href="https://codotype.github.io" target="_blank">
+          <b-button size="lg" variant="outline-dark" class="mx-2" to="/book_types">
             <i class="fa fa-book"></i>
-            Documentation
-          </a>
+            Browse Books
+          </b-button>
+
+          <b-button size="lg" variant="outline-dark" class="mx-2" to="/courses">
+            <i class="fa fa-university"></i>
+            Browse Courses
+          </b-button>
         </div>
       </div>
 
     </div>
   </div>
-
 </template>
 
 <script>
