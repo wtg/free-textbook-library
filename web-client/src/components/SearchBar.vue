@@ -5,10 +5,10 @@
     </div>
 
     <div class="col-lg-3">
-      <button class="btn btn-warning btn-block mr-2" @click='clearFilter()'>
+      <b-button block variant="outline-dark" class="mr-2" @click='clearFilter()'>
         <i class="fa fa-search mr-2"></i>
         Clear Search
-      </button>
+      </b-button>
       <i class="fa fa-spin fa-spinner" v-if="fetching"></i>
     </div>
   </div>
