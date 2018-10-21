@@ -34,8 +34,8 @@ export default {
     LoadingFull
   },
   created () {
-    this.fetch(this.id)
-    this.fetchRentals(this.id)
+    this.fetch(this.$store.getters['auth/current_user']._id)
+    this.fetchRentals(this.$store.getters['auth/current_user']._id)
   },
   methods: mapActions({
     fetchRentals: 'user/fetchRentals',
