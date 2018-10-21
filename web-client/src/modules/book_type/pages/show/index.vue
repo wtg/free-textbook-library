@@ -1,16 +1,63 @@
+<!-- <template> -->
+  <!-- <LoadingFull v-if="fetching" /> -->
+  <!-- <div class="container" v-else> -->
+
+    <!-- <BookTypeShowWidget :model="model" :fetching="fetching" /> -->
+
+    <!-- <div class="row"> -->
+      <!-- <div class="col-lg-12"> -->
+        <!-- <Books :collection="books" /> -->
+      <!-- </div> -->
+
+    <!-- </div> -->
+
+  <!-- </div> -->
+<!-- </template> -->
+
 <template>
-  <LoadingFull v-if="fetching" />
-  <div class="container" v-else>
+  <div class="container">
 
-    <BookTypeShowWidget :model="model" :fetching="fetching" />
+    <!-- <BookTypeShowWidget :model="model" :fetching="fetching" /> -->
+    <b-row>
+      <b-col lg="3">
+        <div class="card">
+          <img class="card-img-top" :src="model.image_url" height="100%" alt="Card image cap">
+        </div>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <Books :collection="books" />
-      </div>
+        <hr>
 
-    </div>
+        <button class="btn btn-lg btn-block btn-success" v-if="isAuthenticated">
+          <i class="fa fa-book"></i>
+          Rent this book
+        </button>
 
+        <button class="btn btn-lg btn-block btn-outline-primary">
+          <i class="fa fa-gift"></i>
+          Donate this book
+        </button>
+
+        <b-button size="lg" block variant="outline-warning" :to="'/book_types/' + model._id + '/edit'" v-if="isAdmin">
+          <i class="fa fa-fw fa-pencil"></i>
+          Edit
+        </b-button>
+
+      </b-col>
+
+      <b-col lg="9">
+        <b-row>
+          <b-col lg='12'>
+            <p class="lead">
+              {{ model.title }}
+            </p>
+            <small class='text-muted'> Authors: {{ model.authors.join(', ') }}</small>
+            <hr>
+          </b-col>
+          <b-col lg='12'>
+            <Books :collection="books" />
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -45,7 +92,9 @@ export default {
   computed: mapGetters({
     books: 'book_type/books',
     model: 'book_type/model',
-    fetching: 'book_type/fetching'
+    fetching: 'book_type/fetching',
+    isAuthenticated: 'auth/is_authenticated',
+    isAdmin: 'auth/isAdmin',
   })
 }
 </script>
