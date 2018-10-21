@@ -25,7 +25,16 @@ module.exports.list = (req, res, next) => {
     // Gets pagination variables for query
     const { page, per_page, offset } = getPaginationParams(req);
 
-    return Course
+    // Only pull courses that have requires or recommended books
+    const booksQuery = { $exists: true, $not: { $size: 0 } }
+    const coursesQuery = {
+        $or: [
+          { required_book_ids: booksQuery },
+          { recommended_book_ids: booksQuery }
+        ]
+    }
+
+    return Course.find(coursesQuery)
     .find({})
     .limit(per_page)
     .skip(offset)
