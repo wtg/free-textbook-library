@@ -29,6 +29,9 @@ export default {
   token: state => {
     return state.token
   },
+  authorizationHeader: state => {
+    return 'JWT ' + state.token
+  },
   fetching: state => {
     return state.fetching
   }
