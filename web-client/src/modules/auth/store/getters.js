@@ -18,7 +18,7 @@ export default {
     return state.current_user.role === 'mentor'
   },
   isAdmin: state => {
-    return state.current_user.role === 'admin'
+    return state.current_user.admin
   },
   current_user: state => {
     return state.current_user
