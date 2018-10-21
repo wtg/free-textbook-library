@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  mongo:
+    image: mongo
+    container_name: 'textbook_library-mongo'
+    ports:
+      - "27017:27017"
+
+  mongo_admin:
+    image: mongo-express
+    container_name: 'textbook_library-mongo-express'
+    links:
+      - mongo
+    ports:
+      - "8081:8081"
+
+  express:
+    build: './'
+    container_name: 'textbook_library-web-api'
+    ports:
+      - "4000:4000"
+    links:
+      - mongo
+    depends_on:
+      - mongo

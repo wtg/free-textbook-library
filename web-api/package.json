@@ -1,0 +1,29 @@
+{
+  "name": "expressjs_boilerplate",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node ./server/bin/www.js",
+    "dev": "nodemon -L ./server/bin/www.js",
+    "test": "mocha --exit",
+    "apidoc": "apidoc -i ./server/api -o doc/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "boom": "^7.2.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.7.1",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {
+    "apidoc": "^0.17.6",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "supertest": "^3.1.0"
+  }
+}
