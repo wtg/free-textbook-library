@@ -1,15 +1,13 @@
 <template>
   <LoadingFull v-if="fetching" />
   <div class="container" v-else>
-
-    <BookShowWidget :model="model" :fetching="fetching" />
-
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-3">
         <BookType :model="book_type" v-if="book_type._id" />
       </div>
 
-      <div class="col-lg-12">
+      <div class="col-lg-9">
+        <BookShowWidget :model="model" :fetching="fetching" />
         <Checkouts :collection="checkouts" />
       </div>
 
