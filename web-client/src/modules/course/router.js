@@ -3,6 +3,7 @@ import CourseList from './pages/list'
 import CourseNew from './pages/new'
 import CourseShow from './pages/show'
 import CourseEdit from './pages/edit'
+import Middleware from '@/routers/middleware'
 
 const CourseListRoute = {
   path: '/courses',
@@ -11,7 +12,8 @@ const CourseListRoute = {
 
 const CourseNewRoute = {
   path: '/courses/new',
-  component: CourseNew
+  component: CourseNew,
+  beforeEnter: Middleware.requireAdmin
 }
 
 const CourseShowRoute = {
@@ -23,7 +25,8 @@ const CourseShowRoute = {
 const CourseEditRoute = {
   path: '/courses/:id/edit',
   component: CourseEdit,
-  props: true
+  props: true,
+  beforeEnter: Middleware.requireAdmin
 }
 
 export default [
