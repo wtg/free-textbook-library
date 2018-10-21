@@ -1,7 +1,8 @@
 <template>
   <b-navbar toggleable="md" fixed="top" type="light" variant="light" class="bg-white">
     <b-navbar-brand to="/">
-      Textbook Library
+      <!-- Free Textbook Library -->
+      ftl<i style='font-size:95%;' class="fa fa-heart text-danger"></i>
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
@@ -9,20 +10,38 @@
 
       <!-- Navbar Links -->
       <b-navbar-nav class="mr-auto">
-        <b-nav-item to="/users">Users</b-nav-item>
-        <b-nav-item to="/book_types">Book Types</b-nav-item>
-        <b-nav-item to="/books">Books</b-nav-item>
-        <b-nav-item to="/checkouts">Checkouts</b-nav-item>
+        <b-nav-item to="/book_types">Books</b-nav-item>
         <b-nav-item to="/courses">Courses</b-nav-item>
+        <b-nav-item to="/checkouts" v-if="isAuthenticated">Checkouts</b-nav-item>
+
+        <!-- <b-nav-item to="/checkouts">Checkouts</b-nav-item> -->
       </b-navbar-nav>
 
       <!-- User Dropdown -->
       <b-navbar-nav class="ml-auto" v-if="isAuthenticated">
+
+        <b-nav-item-dropdown text="Admin" v-if="isAdmin" right>
+          <b-dropdown-item to="/checkouts/new">
+            <i class="fa fa-shopping-cart"></i>
+            Checkout Book
+          </b-dropdown-item>
+          <b-dropdown-item to="/checkouts/new">
+            <i class="fa fa-reply"></i>
+            Check-In Book
+          </b-dropdown-item>
+          <b-dropdown-divider></b-dropdown-divider>
+          <b-dropdown-item to="/checkouts">Checkouts</b-dropdown-item>
+          <b-dropdown-item to="/books">Inventory</b-dropdown-item>
+          <b-dropdown-item to="/courses">Courses</b-dropdown-item>
+          <b-dropdown-item to="/users">Users</b-dropdown-item>
+          <b-dropdown-item to="/faqs">FAQs</b-dropdown-item>
+        </b-nav-item-dropdown>
+
         <b-nav-item-dropdown right>
           <template slot="button-content">
             {{ currentUser.email }}
           </template>
-          <b-dropdown-item :to="'/users/' + currentUser._id">Profile</b-dropdown-item>
+          <b-dropdown-item to="/profile">Profile</b-dropdown-item>
           <b-dropdown-item @click="logout()">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
@@ -46,7 +65,8 @@ export default {
   name: 'Navbar',
   computed: mapGetters({
     isAuthenticated: 'auth/is_authenticated',
-    currentUser: 'auth/current_user'
+    currentUser: 'auth/current_user',
+    isAdmin: 'auth/isAdmin'
   }),
   methods: mapActions({
     logout: 'auth/logout'

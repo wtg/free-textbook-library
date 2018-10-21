@@ -31,7 +31,7 @@
               <b-card-body class="text-center">
                 <div>
                   <h2>Sign up</h2>
-                  <p>Register a new account to get started using all the great features of this web application</p>
+                  <p>Register a new account and start renting textbooks for free</p>
                   <b-button to="/auth/register" variant="primary" class="active mt-3">Register Now!</b-button>
                 </div>
               </b-card-body>

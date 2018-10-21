@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
+import VueClipboard from 'vue-clipboard2'
 import Meta from 'vue-meta'
 import App from '@/App'
 import router from '@/routers'
@@ -14,6 +15,10 @@ Vue.use(Meta)
 // bootstrap-vue
 // Bootstrap components and directives
 Vue.use(BootstrapVue)
+
+// vue-clipboard2
+// Clipboard directive
+Vue.use(VueClipboard)
 
 Vue.config.productionTip = false
 

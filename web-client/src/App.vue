@@ -2,12 +2,14 @@
   <div id="app">
     <AppNavbar/>
     <router-view/>
+    <AppFooter/>
     <NotificationList/>
   </div>
 </template>
 
 <script>
 import AppNavbar from '@/components/Navbar'
+import AppFooter from '@/components/Footer'
 import NotificationList from '@/modules/notification/components/NotificationList'
 
 export default {
@@ -16,6 +18,7 @@ export default {
   // Top-Level Application Components
   components: {
     AppNavbar,
+    AppFooter,
     NotificationList
   },
 
@@ -27,7 +30,7 @@ export default {
   // Top-Level page Meta
   metaInfo: {
     title: 'Loading...', // set a title
-    titleTemplate: 'Textbook Library - %s', // title is now "Textbook Library - Loading..."
+    titleTemplate: 'Free Textbook Library - %s', // title is now "Free Textbook Library - Loading..."
     htmlAttrs: {
       lang: 'en'
     }

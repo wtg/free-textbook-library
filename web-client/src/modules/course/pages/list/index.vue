@@ -1,17 +1,16 @@
 <template>
-  <LoadingFull v-if="fetching" />
-  <div class="container" v-else>
+  <div class="container">
 
     <div class="row">
       <div class="col-md-8">
         <h2>
-          <i class="fa fa-square-o"></i>
+          <i class="fa fa-university"></i>
           Courses
         </h2>
       </div>
 
       <div class="col-md-4 text-right">
-        <b-button variant="primary" to="/courses/new">
+        <b-button variant="primary" to="/courses/new" v-if="isAdmin">
           <i class="fa fa-fw fa-plus"></i>
           New Course
         </b-button>
@@ -23,11 +22,12 @@
       <div class="col-lg-12">
         <SearchBar module='course'/>
       </div>
+      <!-- <div class="col-lg-12"> -->
+        <!-- <b-pagination :total-rows="totalRows" :value="currentPage" :per-page="perPage" @change="goToPage" /> -->
+      <!-- </div> -->
       <div class="col-lg-12">
-        <b-pagination :total-rows="totalRows" :value="currentPage" :per-page="perPage" @change="goToPage" />
-      </div>
-      <div class="col-lg-12">
-        <ListView :collection="collection" />
+        <Loading v-if="fetching" />
+        <ListView :collection="collection" v-else/>
       </div>
     </div>
   </div>
@@ -38,14 +38,14 @@
 <script>
 
 import ListView from '@/modules/course/components/CourseListWidget'
-import LoadingFull from '@/components/LoadingFull'
+import Loading from '@/components/Loading'
 import SearchBar from '@/components/SearchBar'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'CourseList',
   components: {
-    LoadingFull,
+    Loading,
     ListView,
     SearchBar
   },
@@ -60,7 +60,8 @@ export default {
     collection: 'course/collection',
     totalRows: 'course/count',
     perPage: 'course/pageSize',
-    currentPage: 'course/currentPage'
+    currentPage: 'course/currentPage',
+    isAdmin: 'auth/isAdmin'
   }),
   methods: mapActions({
     fetch: 'course/fetchCollection',

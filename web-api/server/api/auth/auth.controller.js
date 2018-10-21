@@ -76,7 +76,6 @@ exports.login = (req, res) => {
         // Assembles JWT User Payload
         const jwt_paylod = {
             id: user._id.toString(),
-            name: user.name,
             admin: user.admin,
             email: user.email,
             username: user.username,

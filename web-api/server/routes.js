@@ -9,6 +9,7 @@ router.use('/book_types', require('./api/book_type'))
 router.use('/books', require('./api/book'))
 router.use('/checkouts', require('./api/checkout'))
 router.use('/courses', require('./api/course'))
+router.use('/faqs', require('./api/faq'))
 
 // // // //
 

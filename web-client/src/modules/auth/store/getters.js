@@ -18,7 +18,7 @@ export default {
     return state.current_user.role === 'mentor'
   },
   isAdmin: state => {
-    return state.current_user.role === 'admin'
+    return state.current_user.admin
   },
   current_user: state => {
     return state.current_user
@@ -28,6 +28,9 @@ export default {
   },
   token: state => {
     return state.token
+  },
+  authorizationHeader: state => {
+    return 'JWT ' + state.token
   },
   fetching: state => {
     return state.fetching

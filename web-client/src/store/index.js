@@ -8,6 +8,7 @@ import book_type from '@/modules/book_type/store'
 import book from '@/modules/book/store'
 import checkout from '@/modules/checkout/store'
 import course from '@/modules/course/store'
+import faq from '@/modules/faq/store'
 
 // Vuex Initialization
 Vue.use(Vuex)
@@ -20,6 +21,7 @@ export default new Vuex.Store({
     book_type,
     book,
     checkout,
-    course
+    course,
+    faq
   }
 })

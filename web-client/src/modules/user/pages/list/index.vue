@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-8">
         <h2>
-          <i class="fa fa-square-o"></i>
+          <i class="fa fa-user"></i>
           Users
         </h2>
       </div>

@@ -13,7 +13,6 @@
           <th>ISBN 10</th>
           <th>Authors</th>
           <th>List Price</th>
-          <th>Image URL</th>
           <th></th>
         </thead>
 
@@ -23,7 +22,6 @@
           <!-- Empty Table Row -->
           <tr class='table-warning' v-if="!collection[0]">
             <td>Empty</td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -47,7 +45,6 @@
             </td>
             <td>{{ m.authors.join(', ') }}</td>
             <td>{{m.list_price}}</td>
-            <td>{{m.image_url}}</td>
 
             <!-- Edit Book Type-->
             <td class='text-right'>

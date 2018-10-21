@@ -3,9 +3,9 @@
 
     <!-- Table Header -->
     <thead>
+      <th>Status</th>
       <th>Start Date</th>
       <th>End Date</th>
-      <th>Status</th>
       <th>Check Out Librarian</th>
       <th>Check In Librarian</th>
       <th>Renter</th>
@@ -29,9 +29,9 @@
       </tr>
 
       <tr v-for="m in collection" :key="m._id">
+        <td>{{m.status}}</td>
         <td>{{m.start_date}}</td>
         <td>{{m.end_date}}</td>
-        <td>{{m.status}}</td>
         <td v-if="m.check_out_librarian_id">
           <router-link :to="'/users/' + m.check_out_librarian_id">
             {{m.check_out_librarian.email}}
@@ -56,31 +56,11 @@
           </router-link>
         </td>
         <td v-else></td>
-        <!-- Edit Checkout-->
+
         <td class='text-right'>
           <b-button size="sm" variant="outline-primary" :to=" '/checkouts/' + m._id">
             <i class="fa fa-fw fa-eye"></i>
           </b-button>
-
-          <b-button size="sm" variant="outline-warning" :to=" '/checkouts/' + m._id + '/edit' ">
-            <i class="fa fa-fw fa-pencil"></i>
-          </b-button>
-
-          <b-button size="sm" variant="outline-danger" v-b-modal="'modal_' + m._id">
-            <i class="fa fa-fw fa-trash"></i>
-          </b-button>
-
-          <!-- Bootstrap Modal Component -->
-          <b-modal :id="'modal_' + m._id"
-            :title="'Destroy Checkout?'"
-            @ok="onConfirmDestroy(m)"
-            ok-variant='danger'
-            ok-title='DESTROY'
-            cancel-title='Cancel'
-          >
-            <p class="text-left">Are you sure you want to destroy this Checkout?</p>
-          </b-modal>
-
         </td>
       </tr>
     </tbody>
@@ -91,13 +71,8 @@
 <!-- // // // //  -->
 
 <script>
-import { mapActions } from 'vuex'
-
 export default {
-  props: ['collection'],
-  methods: mapActions({
-    onConfirmDestroy: 'checkout/deleteModel'
-  })
+  props: ['collection']
 }
 </script>
 

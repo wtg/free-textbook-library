@@ -1,5 +1,5 @@
 import Router from '@/routers'
-import { $GET, $POST } from '@/store/lib/helpers'
+import axios from 'axios'
 import {
   LOGIN_ROUTE,
   REGISTER_ROUTE,
@@ -14,14 +14,28 @@ import {
 const actions = {
   // fetchUserProfile
   // Fetches a user's profiles form the server
-  fetchUserProfile ({ state, commit }) {
-    commit('logging_in', true)
+  fetchUserProfile ({ getters, commit }) {
     return new Promise((resolve, reject) => {
-      $GET(PROFILE_ROUTE, { token: state.token })
-      .then((json) => {
-        commit('current_user', json)
+
+      // Prevents unnecssary fetch on client start
+      if (!getters['token']) {
+        commit('clear_token')
+        commit('clear_current_user')
         commit('logging_in', false)
-        return resolve(json)
+        return resolve()
+      }
+
+      commit('logging_in', true)
+
+      axios.get(PROFILE_ROUTE, {
+        headers: {
+          authorization: getters['authorizationHeader']
+        }
+      })
+      .then(({ data }) => {
+        commit('current_user', data)
+        commit('logging_in', false)
+        return resolve(data)
       })
       .catch((err) => {
         commit('clear_token')
@@ -40,10 +54,18 @@ const actions = {
     commit('logging_in', true)
 
     // Assembles request payload
-    let { email, password, name, username } = state.register_user
+    let { email, username, password } = state.register_user
 
-    // Sends registration data to server
-    $POST(REGISTER_ROUTE, { body: { email, password, name, username } })
+    // Sends login data to server
+    axios({
+      method: 'post',
+      url: REGISTER_ROUTE,
+      data: {
+        email: state.register_user.email,
+        username: state.register_user.username,
+        password: state.register_user.password
+      }
+    })
     .then((json) => {
       commit('clear_register_user')
       commit('logging_in', false)
@@ -72,8 +94,15 @@ const actions = {
     let { username, password } = state.login_user
 
     // Sends login data to server
-    $POST(LOGIN_ROUTE, { body: { username, password } })
-    .then((json) => {
+    axios({
+      method: 'post',
+      url: LOGIN_ROUTE,
+      data: {
+        username: state.login_user.username,
+        password: state.login_user.password
+      }
+    })
+    .then(({ data }) => {
       // Changes loading state
       commit('logging_in', false)
 
@@ -81,13 +110,14 @@ const actions = {
       commit('clear_login_user')
 
       // Updates store.token
-      commit('token', json.token)
+      commit('token', data.token)
+
+      // Pulls current user data from server response
+      const { username, email, admin, _id, roles } = data
+      commit('current_user', { username, email, admin, _id, roles })
 
       // Shows LOGIN_SUCCESS_NOTIFICATION message
       commit('notification/add', LOGIN_SUCCESS_NOTIFICATION, { root: true })
-
-      // Fetches user profile
-      dispatch('fetchUserProfile')
 
       // Redirects to home route
       Router.push('/')

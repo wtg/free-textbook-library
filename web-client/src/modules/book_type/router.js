@@ -3,6 +3,7 @@ import BookTypeList from './pages/list'
 import BookTypeNew from './pages/new'
 import BookTypeShow from './pages/show'
 import BookTypeEdit from './pages/edit'
+import Middleware from '@/routers/middleware'
 
 const BookTypeListRoute = {
   path: '/book_types',
@@ -11,7 +12,8 @@ const BookTypeListRoute = {
 
 const BookTypeNewRoute = {
   path: '/book_types/new',
-  component: BookTypeNew
+  component: BookTypeNew,
+  beforeEnter: Middleware.requireAdmin
 }
 
 const BookTypeShowRoute = {
@@ -23,7 +25,8 @@ const BookTypeShowRoute = {
 const BookTypeEditRoute = {
   path: '/book_types/:id/edit',
   component: BookTypeEdit,
-  props: true
+  props: true,
+  beforeEnter: Middleware.requireAdmin
 }
 
 export default [

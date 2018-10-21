@@ -6,11 +6,12 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <RequiredBooks :collection="required_books" />
+        <!-- <RequiredBooks :collection="required_books" /> -->
+        <RecommendedBooks type="Required" :collection="required_books" />
       </div>
 
       <div class="col-lg-12">
-        <RecommendedBooks :collection="recommended_books" />
+        <RecommendedBooks type="Recommended" :collection="recommended_books" />
       </div>
 
     </div>

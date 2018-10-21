@@ -1,17 +1,16 @@
 <template>
-  <LoadingFull v-if="fetching" />
-  <div class="container" v-else>
+  <div class="container">
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <h2>
-          <i class="fa fa-square-o"></i>
-          Book Types
+          <i class="fa fa-book"></i>
+          Books
         </h2>
       </div>
 
-      <div class="col-md-4 text-right">
-        <b-button variant="primary" to="/book_types/new">
+      <div class="col-md-3 text-right">
+        <b-button variant="primary" block to="/book_types/new" v-if="isAdmin">
           <i class="fa fa-fw fa-plus"></i>
           New Book Type
         </b-button>
@@ -23,11 +22,12 @@
       <div class="col-lg-12">
         <SearchBar module='book_type'/>
       </div>
+      <!-- <div class="col-lg-12"> -->
+        <!-- <b-pagination :total-rows="totalRows" :value="currentPage" :per-page="perPage" @change="goToPage" /> -->
+      <!-- </div> -->
       <div class="col-lg-12">
-        <b-pagination :total-rows="totalRows" :value="currentPage" :per-page="perPage" @change="goToPage" />
-      </div>
-      <div class="col-lg-12">
-        <ListView :collection="collection" />
+        <Loading v-if="fetching" />
+        <ListView v-else :collection="collection" />
       </div>
     </div>
   </div>
@@ -38,14 +38,14 @@
 <script>
 
 import ListView from '@/modules/book_type/components/BookTypeListWidget'
-import LoadingFull from '@/components/LoadingFull'
+import Loading from '@/components/Loading'
 import SearchBar from '@/components/SearchBar'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'BookTypeList',
   components: {
-    LoadingFull,
+    Loading,
     ListView,
     SearchBar
   },
@@ -60,7 +60,8 @@ export default {
     collection: 'book_type/collection',
     totalRows: 'book_type/count',
     perPage: 'book_type/pageSize',
-    currentPage: 'book_type/currentPage'
+    currentPage: 'book_type/currentPage',
+    isAdmin: 'auth/isAdmin'
   }),
   methods: mapActions({
     fetch: 'book_type/fetchCollection',
