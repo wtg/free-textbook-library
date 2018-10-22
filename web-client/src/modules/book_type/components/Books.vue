@@ -43,9 +43,35 @@
 
             <!-- Edit Book-->
             <td class='text-right'>
-              <b-button size="sm" variant="outline-primary" :to=" '/books/' + m._id" v-if="isAdmin">
-                <i class="fa fa-fw fa-shopping-cart"></i>
+
+              <b-button
+                size="sm"
+                variant="outline-primary"
+                :to=" '/books/' + m._id"
+                v-if="isAdmin && m.status === 'Available'"
+              >
                 Checkout
+                <i class="fa fa-fw fa-shopping-cart"></i>
+              </b-button>
+
+              <b-button
+                disabled
+                size="sm"
+                variant="outline-danger"
+                v-if="isAdmin && m.status === 'Missing'"
+              >
+                Missing
+                <i class="fa fa-fw fa-times"></i>
+              </b-button>
+
+              <b-button
+                size="sm"
+                variant="outline-warning"
+                :to=" '/books/' + m._id"
+                v-if="isAdmin && m.status === 'Rented'"
+              >
+                Check In
+                <i class="fa fa-fw fa-arrow-right"></i>
               </b-button>
 
               <!-- <b-button size="sm" variant="outline-warning" :to=" '/books/' + m._id + '/edit' "> -->
