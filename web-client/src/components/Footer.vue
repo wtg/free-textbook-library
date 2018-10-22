@@ -37,24 +37,24 @@
 
       </b-navbar-nav>
 
-      <b-navbar-nav class="ml-auto">
+      <!-- <b-navbar-nav class="ml-auto"> -->
 
-        <b-nav-item target='_blank' href="https://goo.gl/forms/uhCLfol3SlAUwt2p1">
-          <i class="fa fa-lg fa-comment text-primary mr-1"></i>
-          Feedback
-        </b-nav-item>
+        <!-- <b-nav-item target='_blank' href="https://goo.gl/forms/uhCLfol3SlAUwt2p1"> -->
+          <!-- <i class="fa fa-lg fa-comment text-primary mr-1"></i> -->
+          <!-- Feedback -->
+        <!-- </b-nav-item> -->
 
-        <b-nav-item target="_blank" href="https://codotype.github.io">
-          <i class="fa fa-lg fa-book text-warning mr-1"></i>
-          Documentation
-        </b-nav-item>
+        <!-- <b-nav-item target="_blank" href="https://wtg.github.io"> -->
+          <!-- <i class="fa fa-lg fa-book text-warning mr-1"></i> -->
+          <!-- Documentation -->
+        <!-- </b-nav-item> -->
 
         <!-- <b-nav-item href="http://codotype.io" target='_blank'> -->
           <!-- <i class="fas fa-dollar-sign text-success mr-1"></i> -->
           <!-- Donate -->
         <!-- </b-nav-item> -->
 
-      </b-navbar-nav>
+      <!-- </b-navbar-nav> -->
 
     </b-collapse>
   </b-navbar>
