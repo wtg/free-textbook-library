@@ -2,15 +2,15 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <h2>
           <i class="fa fa-university"></i>
           Courses
         </h2>
       </div>
 
-      <div class="col-md-4 text-right">
-        <b-button variant="primary" to="/courses/new" v-if="isAdmin">
+      <div class="col-md-3 text-right">
+        <b-button block variant="primary" to="/courses/new" v-if="isAdmin">
           <i class="fa fa-fw fa-plus"></i>
           New Course
         </b-button>

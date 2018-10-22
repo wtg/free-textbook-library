@@ -5,12 +5,12 @@
     <CourseShowWidget :model="model" :fetching="fetching" />
 
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12" v-if="required_books[0]">
         <!-- <RequiredBooks :collection="required_books" /> -->
         <RecommendedBooks type="Required" :collection="required_books" />
       </div>
 
-      <div class="col-lg-12">
+      <div class="col-lg-12" v-if="recommended_books[0]">
         <RecommendedBooks type="Recommended" :collection="recommended_books" />
       </div>
 
