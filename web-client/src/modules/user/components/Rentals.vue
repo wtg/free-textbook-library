@@ -10,9 +10,8 @@
           <th>Start Date</th>
           <th>End Date</th>
           <th>Status</th>
-          <th>Check Out Librarian</th>
-          <th>Check In Librarian</th>
-          <th>Renter</th>
+          <!-- <th>Check Out Librarian</th> -->
+          <!-- <th>Check In Librarian</th> -->
           <th>Book</th>
           <th></th>
         </thead>
@@ -27,9 +26,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <!-- <td></td> -->
+            <!-- <td></td> -->
           </tr>
 
           <tr v-for="m in collection" :key="m._id">
@@ -37,21 +35,16 @@
             <td>{{m.end_date}}</td>
             <td>{{m.status}}</td>
 
-            <td>
-              <router-link :to="'/users/' + m.check_out_librarian_id">
-                {{m.check_out_librarian.email}}
-              </router-link>
-            </td>
-            <td>
-              <router-link :to="'/users/' + m.check_in_librarian_id">
-                {{m.check_in_librarian.email}}
-              </router-link>
-            </td>
-            <td>
-              <router-link :to="'/users/' + m.renter_id">
-                {{m.renter.email}}
-              </router-link>
-            </td>
+            <!-- <td> -->
+              <!-- <router-link :to="'/users/' + m.check_out_librarian_id"> -->
+                <!-- {{m.check_out_librarian.email}} -->
+              <!-- </router-link> -->
+            <!-- </td> -->
+            <!-- <td> -->
+              <!-- <router-link :to="'/users/' + m.check_in_librarian_id"> -->
+                <!-- {{m.check_in_librarian.email}} -->
+              <!-- </router-link> -->
+            <!-- </td> -->
             <td>
               <router-link :to="'/books/' + m.book_id">
                 {{m.book.slug}}

@@ -3,15 +3,15 @@
   <div class="container" v-else>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <h2>
           <i class="fa fa-user"></i>
           Users
         </h2>
       </div>
 
-      <div class="col-md-4 text-right">
-        <b-button variant="primary" to="/users/new">
+      <div class="col-md-3 text-right">
+        <b-button block variant="primary" to="/users/new">
           <i class="fa fa-fw fa-plus"></i>
           New User
         </b-button>
