@@ -3,17 +3,17 @@
   <div class="container" v-else>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-9">
         <h2>
-          <i class="fa fa-square-o"></i>
-          Faqs
+          <i class="fa fa-question-circle-o"></i>
+          FAQs
         </h2>
       </div>
 
-      <div class="col-md-4 text-right">
-        <b-button variant="primary" to="/faqs/new">
+      <div class="col-md-3 text-right">
+        <b-button block variant="primary" to="/faqs/new">
           <i class="fa fa-fw fa-plus"></i>
-          New Faq
+          New FAQ
         </b-button>
       </div>
     </div>

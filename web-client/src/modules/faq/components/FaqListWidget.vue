@@ -4,7 +4,7 @@
     <!-- Table Header -->
     <thead>
       <th>Question</th>
-      <th>Answer</th>
+      <!-- <th>Answer</th> -->
       <th>Order</th>
       <th></th>
     </thead>
@@ -22,7 +22,7 @@
 
       <tr v-for="m in collection" :key="m._id">
         <td>{{m.question}}</td>
-        <td>{{m.answer}}</td>
+        <!-- <td>{{m.answer}}</td> -->
         <td>{{m.order}}</td>
         <!-- Edit Faq-->
         <td class='text-right'>
