@@ -26,6 +26,7 @@ module.exports.list = (req, res, next) => {
 
     return Faq
     .find({})
+    .sort({ order: 1 })
     .limit(per_page)
     .skip(offset)
     .lean()

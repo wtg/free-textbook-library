@@ -52,10 +52,10 @@
             <td>Username</td>
             <td>{{model.username}}</td>
           </tr>
-          <tr>
-            <td>Roles</td>
-            <td>{{model.roles.join(', ')}}</td>
-          </tr>
+          <!-- <tr> -->
+            <!-- <td>Roles</td> -->
+            <!-- <td>{{model.roles.join(', ')}}</td> -->
+          <!-- </tr> -->
           <tr>
             <td>Verified</td>
             <td>
@@ -65,15 +65,15 @@
               </span>
             </td>
           </tr>
-          <tr>
-            <td>Banned</td>
-            <td>
-              <span>
-                <i class="fa fa-fw fa-check-square-o" v-if="model.banned"></i>
-                <i class="fa fa-fw fa-square-o" v-if="!model.banned"></i>
-              </span>
-            </td>
-          </tr>
+          <!-- <tr> -->
+            <!-- <td>Banned</td> -->
+            <!-- <td> -->
+              <!-- <span> -->
+                <!-- <i class="fa fa-fw fa-check-square-o" v-if="model.banned"></i> -->
+                <!-- <i class="fa fa-fw fa-square-o" v-if="!model.banned"></i> -->
+              <!-- </span> -->
+            <!-- </td> -->
+          <!-- </tr> -->
         </tbody>
 
       </table>

@@ -94,7 +94,7 @@ export const FILTER_ACTIONS = (module) => {
 
 export const PAGINATION_STATE = {
   count: 0,
-  pageSize: 5,
+  pageSize: 10,
   currentPage: 0
 }
 

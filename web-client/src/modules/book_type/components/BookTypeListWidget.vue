@@ -22,22 +22,21 @@
       </div>
     </div>
 
-    <div class='col-lg-3' v-for="m in collection" :key="m._id">
-
-      <div class='card'>
-        <router-link :to=" '/book_types/' + m._id ">
-          <img class="card-img-top" :src="m.image_url" style="width: 100%;" />
-        </router-link>
-        <div class="card-body">
+    <div class="col-lg-12">
+      <div class="card-columns">
+        <div class='card' v-for="m in collection" :key="m._id">
           <router-link :to=" '/book_types/' + m._id ">
-            {{m.title}}
+            <img class="card-img-top" :src="m.image_url" style="width: 100%;" />
           </router-link>
-          <small>{{m.edition}}</small>
-          <small>{{m.list_price}}</small>
+          <div class="card-body">
+            <router-link :to=" '/book_types/' + m._id ">
+              {{m.title}}
+            </router-link>
+          </div>
         </div>
       </div>
-
     </div>
+
   </div>
 </template>
 
@@ -49,3 +48,14 @@ export default {
   props: ['collection']
 }
 </script>
+
+<style lang="sass">
+@import '../../../sass/vendor.sass'
+
+.card-columns
+  @include media-breakpoint-only(lg)
+    column-count: 5;
+
+  @include media-breakpoint-only(xl)
+    column-count: 6;
+</style>

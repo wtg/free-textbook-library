@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" fixed="top" type="light" variant="light" class="bg-white">
+  <b-navbar toggleable="md" fixed="top" type="light" class="bg-body">
     <b-navbar-brand to="/">
       <!-- Free Textbook Library -->
       ftl<i style='font-size:95%;' class="fa fa-heart text-danger"></i>
@@ -13,8 +13,6 @@
         <b-nav-item to="/book_types">Books</b-nav-item>
         <b-nav-item to="/courses">Courses</b-nav-item>
         <b-nav-item to="/checkouts" v-if="isAuthenticated">Checkouts</b-nav-item>
-
-        <!-- <b-nav-item to="/checkouts">Checkouts</b-nav-item> -->
       </b-navbar-nav>
 
       <!-- User Dropdown -->
